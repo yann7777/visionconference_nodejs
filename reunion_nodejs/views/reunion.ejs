@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Ec2lt Reunion</h1>
+  </header>
+
+  <main class="main reunion-page">
+    <div class="reunion-header">
+      <div class="reunion-info">
+        <h2>Réunion : <%= idReunion %></h2>
+        <p>Participant : <%= nomUtilisateur %></p>
+      </div>
+      <div class="reunion-controles">
+        <button id="boutonAudio" class="bouton controle audio-actif" aria-label="Activer ou désactiver l'audio">
+          Audio Activé
+        </button>
+        <button id="boutonVideo" class="bouton controle video-actif" aria-label="Activer ou désactiver la vidéo">
+          Vidéo Activée
+        </button>
+        <button id="boutonMain" class="bouton controle" aria-label="Lever ou baisser la main">
+          Lever la main
+        </button>
+        <button id="boutonPartageEcran" class="bouton controle" aria-label="Partager l'écran">
+          Partager l'Écran
+        </button>
+        <button id="boutonQuitter" class="bouton bouton-danger" aria-label="Quitter la réunion">
+          Quitter
+        </button>
+      </div>
+    </div>
+
+    <div class="reunion-contenu">
+      <div class="zone-principale">
+        <div id="videoLocal" class="video-container">
+          <video id="monVideo" autoplay muted></video>
+          <div class="video-label">Vous</div>
+        </div>
+        <div id="partageEcranContainer" class="partage-ecran-container hidden">
+          <video id="videoPartageEcran" autoplay></video>
+          <div class="partage-ecran-label">Partage d'écran</div>
+        </div>
+      </div>
+
+      <div class="zone-laterale">
+        <div class="participants-section">
+          <h3>Participants</h3>
+          <div id="listeParticipants" class="liste-participants">
+            <!-- Les participants seront ajoutés dynamiquement -->
+          </div>
+        </div>
+        <div class="videos-participants">
+          <div id="videosDistantes" class="videos-distantes">
+            <!-- Les vidéos des autres participants seront ajoutées ici -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="messageStatut" class="message-statut hidden">
+      <!-- Messages de statut (partage d'écran, etc.) -->
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    // Initialiser la réunion
+    window.onload = function() {
+      const idReunion = '<%= idReunion %>';
+      const nomUtilisateur = '<%= nomUtilisateur %>';
+      console.log('Page chargée, initialisation de la réunion:', idReunion, nomUtilisateur);
+      
+      if (typeof initialiserReunion === 'function') {
+        initialiserReunion(idReunion, nomUtilisateur);
+      } else {
+        console.error("Fonction initialiserReunion non trouvée !");
+        alert("Erreur: Impossible d'initialiser la réunion. Veuillez recharger la page.");
+      }
+    };
+  </script>
+
+  <footer class="footer">
+    <p>© EC2LT - 2023-2025 - Tous droits réservés</p>
+    <p>Ministère de l'Enseignement Supérieur, de la Recherche et de l'Innovation (MESRI)</p>
+    <p>École Centrale des Logiciels Libres et de Télécommunications (EC2LT)</p>
+    <p>Développeur : NASRY AHAMADI</p>
+  </footer>
+</body>
+</html>

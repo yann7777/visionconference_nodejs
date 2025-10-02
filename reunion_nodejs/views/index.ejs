@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title><%= title %></title>
+ <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+ <header class="header">
+ <h1>Ec2lt Reunion</h1>
+ </header>
+<main class="main">
+ <div class="container">
+ <h2>Bienvenue dans Ec2lt Reunion</h2>
+
+ <% if (typeof erreur !== 'undefined') { %>
+ <div class="message erreur">
+ <%= erreur %>
+ </div>
+ <% } %>
+<div class="actions">
+ <div class="action-card">
+ <h3>Créer une Nouvelle Réunion</h3>
+ <form action="/creer-reunion" method="POST" class="formulaire">
+<div class="champ">
+ <label for="nomUtilisateur">Votre nom :</label>
+ <input type="text" id="nomUtilisateur" name="nomUtilisateur"
+required>
+ </div>
+ <button type="submit" class="bouton bouton-principal">
+ Créer la Réunion
+ </button>
+ </form>
+ </div>
+ <div class="action-card">
+ <h3>Rejoindre une Réunion</h3>
+ <form action="/rejoindre-reunion" method="POST" class="formulaire">
+ <div class="champ">
+ <label for="idReunionRejoindre">ID de la réunion :</label>
+ <input type="text" id="idReunionRejoindre" name="idReunion"
+required>
+ </div>
+ <div class="champ">
+ <label for="nomUtilisateurRejoindre">Votre nom :</label>
+ <input type="text" id="nomUtilisateurRejoindre"
+name="nomUtilisateur" required>
+ </div>
+ <button type="submit" class="bouton bouton-secondaire">
+Rejoindre la Réunion
+ </button>
+ </form>
+ </div>
+ </div>
+ </div>
+</main>
+<footer class="footer">
+ <p>© EC2LT - 2023-2025 - Tous droits réservés | Ministère de l'Enseignement
+Supérieur, de la Recherche et de l'Innovation (MESRI)
+École Centrale des Logiciels Libres et de Télécommunications (EC2LT) | Développeur:
+[NASRY AHAMADI]</p>
+ </footer>
+</body>
+</html>

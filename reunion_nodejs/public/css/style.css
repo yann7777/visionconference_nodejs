@@ -1,0 +1,453 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ line-height: 1.6;
+ color: #333;
+ background-color: #f5f5f5;
+ min-height: 100vh;
+ display: flex;
+flex-direction: column;
+}
+/* Header */
+.header {
+ background-color: #1f1aa9;
+ color: white;
+ padding: 1rem 0;
+ text-align: center;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.header h1 {
+ font-size: 1.8rem;
+ font-weight: 300;
+}
+/* Main content */
+.main {
+ flex: 1;
+ padding: 2rem 1rem;
+}
+.container {
+ max-width: 1200px;
+ margin: 0 auto;
+}
+/* Page d'accueil */
+.actions {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 2rem;
+ margin-top: 2rem;
+}
+.action-card {
+ background: white;
+ padding: 2rem;
+ border-radius: 8px;
+ box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+ border: 1px solid #e0e0e0;
+}
+.action-card h3 {
+ margin-bottom: 1.5rem;
+ color: #2c3e50;
+ font-weight: 500;
+}
+/* Formulaires */
+.formulaire {
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+}
+.champ {
+ display: flex;
+ flex-direction: column;
+}
+.champ label {
+ margin-bottom: 0.5rem;
+ font-weight: 500;
+ color: #555;
+}
+.champ input {
+ padding: 0.75rem;
+ border: 2px solid #ddd;
+ border-radius: 4px;
+ font-size: 1rem;
+ transition: border-color 0.3s;
+}
+.champ input:focus {
+ outline: none;
+ border-color: #3498db;
+}
+/* Boutons */
+.bouton {
+ padding: 0.75rem 1.5rem;
+ border: none;
+ border-radius: 4px;
+ font-size: 1rem;
+ cursor: pointer;
+ transition: all 0.3s;
+ font-weight: 500;
+ text-decoration: none;
+ display: inline-block;
+ text-align: center;
+}
+.bouton-principal {
+ background-color: #1f1aa9;
+ color: white;
+}
+.bouton-principal:hover {
+ background-color: #1f1aa9;
+}
+.bouton-secondaire {
+ background-color: #1f1aa9;
+ color: white;
+}
+.bouton-secondaire:hover {
+ background-color: #1f1aa9;
+}
+.bouton-danger {
+ background-color: #e74c3c;
+ color: white;
+}
+.bouton-danger:hover {
+ background-color: #c0392b;
+}
+/* Messages */
+.message {
+ padding: 1rem;
+ margin-bottom: 1rem;
+ border-radius: 4px;
+ border-left: 4px solid;
+}
+.message.erreur {
+ background-color: #fdf2f2;
+ color: #e74c3c;
+ border-left-color: #e74c3c;
+}
+.message.succes {
+ background-color: #f0fff4;
+ color: #27ae60;
+ border-left-color: #27ae60;
+}
+/* Page de réunion */
+.reunion-page {
+ padding: 0;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+.reunion-header {
+ background: white;
+ padding: 1rem 2rem;
+ border-bottom: 1px solid #e0e0e0;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 1rem;
+}
+.reunion-info h2 {
+ color: #2c3e50;
+ margin-bottom: 0.25rem;
+}
+.reunion-info p {
+ color: #7f8c8d;
+ font-size: 0.9rem;
+}
+.reunion-controles {
+ display: flex;
+ gap: 0.5rem;
+ flex-wrap: wrap;
+}
+.bouton.controle {
+ padding: 0.5rem 1rem;
+ font-size: 0.9rem;
+ min-width: 120px;
+}
+.audio-actif {
+ background-color: #27ae60;
+ color: white;
+}
+.audio-inactif {
+ background-color: #e74c3c;
+ color: white;
+}
+.video-actif {
+    background-color: #27ae60;
+ color: white;
+}
+.video-inactif {
+ background-color: #e74c3c;
+ color: white;
+}
+/* Styles pour la fonctionnalité main levée */
+.bouton.controle.main-levee {
+ background-color: #f39c12;
+ color: white;
+ animation: pulse-main 2s infinite;
+}
+@keyframes pulse-main {
+ 0% { background-color: #f39c12; }
+ 50% { background-color: #e67e22; }
+ 100% { background-color: #f39c12; }
+}
+.participant-item.main-levee {
+ background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%) !important;
+ border-left: 4px solid #f39c12;
+ border-right: 2px solid #f39c12;
+ animation: pulse-item 2s infinite;
+ box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+ transform: scale(1.02);
+ transition: all 0.3s ease;
+}
+@keyframes pulse-item {
+ 0% { 
+     border-left-color: #f39c12;
+     box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+ }
+ 50% { 
+     border-left-color: #e67e22;
+     box-shadow: 0 4px 12px rgba(243, 156, 18, 0.5);
+ }
+ 100% { 
+     border-left-color: #f39c12;
+     box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+ }
+}
+/* Badge main levée plus visible */
+.badge-main-levee {
+ background: linear-gradient(135deg, #f39c12, #e67e22);
+ color: white;
+ border-radius: 50%;
+ width: 24px;
+ height: 24px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 14px;
+ font-weight: bold;
+ margin-right: 8px;
+ animation: bounce 2s infinite;
+ box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+@keyframes bounce {
+ 0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+ 40% { transform: translateY(-5px); }
+ 60% { transform: translateY(-3px); }
+}
+.participant-nom-container {
+ display: flex;
+ align-items: center;
+ flex: 1;
+}
+/* Contenu de la réunion */
+.reunion-contenu {
+ flex: 1;
+ display: flex;
+ gap: 1rem;
+ padding: 1rem;
+ min-height: 0;
+}
+.zone-principale {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+}
+.zone-laterale {
+ width: 300px;
+ display: flex;
+ flex-direction: column;
+ gap: 1rem;
+}
+/* Conteneurs vidéo */
+.video-container {
+ position: relative;
+ background: #2c3e50;
+ border-radius: 8px;
+ overflow: hidden;
+ min-height: 200px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.video-container video {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ }
+.video-label {
+ position: absolute;
+ bottom: 10px;
+ left: 10px;
+ background: rgba(0,0,0,0.7);
+ color: white;
+ padding: 0.25rem 0.5rem;
+ border-radius: 4px;
+ font-size: 0.8rem;
+}
+#videoLocal {
+ height: 300px;
+}
+.partage-ecran-container {
+ flex: 1;
+ min-height: 400px;
+}
+.partage-ecran-label {
+ position: absolute;
+ top: 10px;
+ left: 10px;
+ background: rgba(52, 152, 219, 0.9);
+ color: white;
+ padding: 0.5rem 1rem;
+ border-radius: 4px;
+ font-weight: 500;
+}
+/* Participants */
+.participants-section {
+ background: white;
+ border-radius: 8px;
+ padding: 1rem;
+ border: 1px solid #e0e0e0;
+}
+.participants-section h3 {
+ margin-bottom: 1rem;
+ color: #2c3e50;
+ font-size: 1rem;
+}
+.liste-participants {
+    display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
+}
+.participant-item {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0.75rem;
+ background: #f8f9fa;
+ border-radius: 4px;
+ font-size: 0.9rem;
+ transition: all 0.3s ease;
+}
+.participant-nom {
+ font-weight: 500;
+}
+.participant-statut {
+ display: flex;
+ gap: 0.25rem;
+}
+.statut-badge {
+ width: 8px;
+ height: 8px;
+ border-radius: 50%;
+}
+.statut-badge.audio-actif {
+ background-color: #27ae60;
+}
+.statut-badge.audio-inactif {
+ background-color: #e74c3c;
+}
+.statut-badge.video-actif {
+ background-color: #3498db;
+}
+.statut-badge.video-inactif {
+ background-color: #95a5a6;
+}
+/* Vidéos des participants */
+.videos-distantes {
+    display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
+}
+.video-distante {
+ position: relative;
+ background: #34495e;
+ border-radius: 6px;
+ overflow: hidden;
+ height: 120px;
+}
+.video-distante video {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+/* Message de statut */
+.message-statut {
+ position: fixed;
+ top: 20px;
+ right: 20px;
+ background: rgba(52, 152, 219, 0.9);
+ color: white;
+ padding: 1rem;
+ border-radius: 6px;
+ font-weight: 500;
+ z-index: 1000;
+ animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+ from { opacity: 0; transform: translateY(-20px); }
+ to { opacity: 1; transform: translateY(0); }
+}
+/* Footer */
+.footer {
+ background-color: #1f1aa9;
+ color: white;
+ text-align: center;
+ padding: 1rem;
+ font-size: 0.9rem;
+}
+/* Classes utilitaires */
+.hidden {
+ display: none !important;
+}
+/* Responsive */
+@media (max-width: 768px) {
+ .reunion-contenu {
+ flex-direction: column;
+ }
+ .zone-laterale {
+ width: 100%;
+ order: -1;
+ }
+.reunion-header {
+ flex-direction: column;
+ align-items: stretch;
+ }
+ .reunion-controles {
+ justify-content: center;
+ }
+ .actions {
+ grid-template-columns: 1fr;
+ }
+ .badge-main-levee {
+ width: 20px;
+ height: 20px;
+ font-size: 12px;
+ margin-right: 6px;
+ }
+}
+@media (max-width: 480px) {
+ .main {
+ padding: 1rem 0.5rem;
+ }
+ .action-card {
+ padding: 1.5rem;
+ }
+ .reunion-header {
+ padding: 1rem;
+ }
+.bouton.controle {
+ min-width: 100px;
+ font-size: 0.8rem;
+ }
+ .participant-item {
+ padding: 0.5rem;
+ }
+ .badge-main-levee {
+ width: 18px;
+ height: 18px;
+ font-size: 11px;
+ margin-right: 4px;
+ }
+}
